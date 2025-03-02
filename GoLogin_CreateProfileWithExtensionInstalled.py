@@ -18,17 +18,15 @@ headers = {
 }
 
 payload = {
-    "name": "Ubuntu_Chrome_Profile2",
+    "name": "Ubuntu_Chrome_Profile4",
     "os": "lin",
     "browserType": "chrome",
-    "extensions": [
-        {"id": EXTENSION_ID}
-    ],
+    "chromeExtensions": [EXTENSION_ID],
     "navigator": {
         "userAgent": "random",
-        "resolution": "1920x1080",  # Explicit resolution
+        "resolution": "1920x1080",
         "language": "en-US",
-        "platform": "Linux x86_64"  # Explicit platform
+        "platform": "Linux x86_64"
     },
     "proxy": {
         "mode": "none"
@@ -41,8 +39,17 @@ payload = {
     },
     "webRTC": {
         "mode": "alerted"
+    },
+    "fonts": {
+        "enableMasking": True,
+        "enableDomRect": True,
+        "families": [
+            "Arial", "Courier New", "Times New Roman",
+            "Verdana", "Tahoma", "Georgia"
+        ]
     }
 }
+
 
 response = requests.post(url, headers=headers, data=json.dumps(payload))
 
